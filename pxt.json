@@ -13,7 +13,9 @@
         "main.ts",
         "basic.ts",
         "sendBuffer.asm",
-        "display.ts"
+        "display.ts",
+        "_locales/zh-CN/pxt-youdao-strings.json",
+        "_locales/zh-CN/pxt-youdao-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
