@@ -13,7 +13,7 @@
   "PlanetX_Basic.motorFan|block": "电机风扇 %Rjpin 切换至 $fanstate || 速度 %speed \\%",
   "PlanetX_Basic.trimpot|block": "电位器 %Rjpin 模拟值",
   "PlanetX_Basic.ultrasoundSensor|block": "超声波传感器 %Rjpin 距离 %distance_unit",
-  "PlanetX_Basic|block": "PlanetX_Base",
+  "PlanetX_Basic|block": "行星X_基础",
   "PlanetX_Display.AnalogRJPin.J1|block": "J1",
   "PlanetX_Display.AnalogRJPin.J2|block": "J2",
   "PlanetX_Display.DigitalRJPin.J1|block": "J1",
