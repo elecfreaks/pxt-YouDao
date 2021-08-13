@@ -241,7 +241,29 @@ namespace PlanetX_Display {
         return pin
     }
     /////////////////////////////User_function//////////////////
+    //% line.min=1 line.max=8 line.defl=1
+    //% text.defl="Hello,ELECFREAKS"
+    //% block="OLED show line %line|text %text"
+    //% subcategory=Display group="OLED" color=#00B1ED
+    export function showUserText(line: number, text: string) {
+        if (firstoledinit) {
+            oledinit()
+            firstoledinit = false
+        }
+        if (text.length > 16) {
+            text = text.substr(0, 16)
+        }
+        line = line - 1
+        setText(line, 0);
+        for (let c of text) {
+            putChar(c);
+        }
 
+        for (let i = text.length; i < 16; i++) {
+            setText(line, i);
+            putChar(" ");
+        }
+    }
     //% line.min=1 line.max=8 line.defl=2 
     //% n.defl=20200508
     //% block="OLED show line %line|number %n"
@@ -269,29 +291,7 @@ namespace PlanetX_Display {
         //oledcmd(DISPLAY_ON);    //display on
         setText(0, 0);
     }
-    //% line.min=1 line.max=8 line.defl=1
-    //% text.defl="Hello,ELECFREAKS"
-    //% block="OLED show line %line|text %text"
-    //% subcategory=Display group="OLED" color=#00B1ED
-    export function showUserText(line: number, text: string) {
-        if (firstoledinit) {
-            oledinit()
-            firstoledinit = false
-        }
-        if (text.length > 16) {
-            text = text.substr(0, 16)
-        }
-        line = line - 1
-        setText(line, 0);
-        for (let c of text) {
-            putChar(c);
-        }
 
-        for (let i = text.length; i < 16; i++) {
-            setText(line, i);
-            putChar(" ");
-        }
-    }
 
     //% shim=sendBufferAsm
     function sendBuffer(buf: Buffer, pin: DigitalPin) {
