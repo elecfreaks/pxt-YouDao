@@ -14,7 +14,8 @@
         "basic.ts",
         "sendBuffer.asm",
         "display.ts",
-        "motion.ts"
+        "motion.ts",
+        "_locales/zh-CN/pxt-youdao-strings.json"
     ],
     "testFiles": [
         "test.ts"
@@ -27,5 +28,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
