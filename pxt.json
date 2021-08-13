@@ -5,7 +5,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "nezha": "github:elecfreaks/pxt-nezha"
     },
     "files": [
         "README.md",
