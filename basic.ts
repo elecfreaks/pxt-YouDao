@@ -80,7 +80,7 @@ namespace PlanetX_Basic {
     //% Rjpin.fieldOptions.columns=2
     //% distance_unit.fieldEditor="gridpicker"
     //% distance_unit.fieldOptions.columns=2
-    //% subcategory=Sensor group="Digital" color=#EA5532
+    //% group="Digital" color=#EA5532
     export function ultrasoundSensor(Rjpin: DigitalRJPin, distance_unit: Distance_Unit_List): number {
         let pinT = DigitalPin.P1
         let pinE = DigitalPin.P2
@@ -134,7 +134,7 @@ namespace PlanetX_Basic {
     //% blockId="readdht11" block="DHT11 sensor %Rjpin %dht11state value"
     //% Rjpin.fieldEditor="gridpicker" dht11state.fieldEditor="gridpicker"
     //% Rjpin.fieldOptions.columns=2 dht11state.fieldOptions.columns=1
-    //% subcategory=Sensor group="Digital" color=#EA5532
+    //% group="Digital" color=#EA5532
     export function dht11Sensor(Rjpin: DigitalRJPin, dht11state: DHT11_state): number {
 
         //initialize
@@ -188,7 +188,7 @@ namespace PlanetX_Basic {
     //% blockId="potentiometer" block="Trimpot %Rjpin analog value"
     //% Rjpin.fieldEditor="gridpicker"
     //% Rjpin.fieldOptions.columns=2
-    //% subcategory=Input color=#E2C438 group="Analog"
+    //% color=#E2C438 group="Analog"
     export function trimpot(Rjpin: AnalogRJPin): number {
         let pin = AnalogPin.P1
         pin = RJpin_to_analog(Rjpin)
@@ -202,7 +202,7 @@ namespace PlanetX_Basic {
     //% Rjpin.fieldEditor="gridpicker"
     //% Rjpin.fieldOptions.columns=2
     //% fanstate.shadow="toggleOnOff"
-    //% subcategory=Excute group="Digital" color=#EA5532
+    //% group="Digital" color=#EA5532
     //% speed.min=0 speed.max=100
     //% expandableArgumentMode="toggle"
     export function motorFan(Rjpin: DigitalRJPin, fanstate: boolean, speed: number = 100): void {

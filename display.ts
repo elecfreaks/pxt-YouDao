@@ -242,7 +242,7 @@ namespace PlanetX_Display {
     }
     /////////////////////////////User_function//////////////////
     //% block="clear display" color=#00B1ED
-    //% subcategory=Display group="OLED"
+    //%  group="OLED"
     export function oledClear() {
         //oledcmd(DISPLAY_OFF);   //display off
         for (let j = 0; j < 8; j++) {
@@ -260,7 +260,7 @@ namespace PlanetX_Display {
     //% line.min=1 line.max=8 line.defl=2 
     //% n.defl=20200508
     //% block="OLED show line %line|number %n"
-    //% subcategory=Display group="OLED" color=#00B1ED
+    //%  group="OLED" color=#00B1ED
     export function showUserNumber(line: number, n: number) {
         if (firstoledinit) {
             oledinit()
@@ -271,7 +271,7 @@ namespace PlanetX_Display {
     //% line.min=1 line.max=8 line.defl=1
     //% text.defl="Hello,ELECFREAKS"
     //% block="OLED show line %line|text %text"
-    //% subcategory=Display group="OLED" color=#00B1ED
+    //%  group="OLED" color=#00B1ED
     export function showUserText(line: number, text: string) {
         if (firstoledinit) {
             oledinit()
@@ -314,7 +314,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_set_strip_color" block="%strip|show color %rgb=neopixel_colors"
         //% weight=85 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         showColor(rgb: number) {
             rgb = rgb >> 0;
             this.setAllRGB(rgb);
@@ -328,7 +328,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_set_strip_rainbow" block="%strip|show rainbow from %startHue|to %endHue"
         //% weight=85 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         showRainbow(startHue: number = 1, endHue: number = 360) {
             if (this._length <= 0) return;
 
@@ -394,7 +394,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors"
         //% weight=80 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset >> 0, rgb >> 0);
         }
@@ -404,7 +404,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_show" block="%strip|show" 
         //% weight=79
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         show() {
             sendBuffer(this.buf, this.pin);
         }
@@ -415,7 +415,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_clear" block="%strip|clear"
         //% weight=76 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         clear(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             this.buf.fill(0, this.start * stride, this._length * stride);
@@ -427,7 +427,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_set_brightness" block="%strip|set brightness %brightness" 
         //% weight=59 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
         }
@@ -440,7 +440,7 @@ namespace PlanetX_Display {
         //% weight=89 color=#EA5532
         //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
         //% parts="neopixel"
-        //% blockSetVariable=range subcategory=Neopixel
+        //% blockSetVariable=range 
         range(start: number, length: number): Strip {
             start = start >> 0;
             length = length >> 0;
@@ -462,7 +462,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_shift" block="%strip|shift pixels by %offset" 
         //% weight=40 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         shift(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -476,7 +476,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_rotate" block="%strip|rotate pixels by %offset" 
         //% weight=39 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         rotate(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -487,7 +487,7 @@ namespace PlanetX_Display {
          * Set the pin where the neopixel is connected, defaults to P0.
          */
         //% weight=10 color=#EA5532
-        //% parts="neopixel" subcategory=Neopixel
+        //% parts="neopixel" 
         setPin(pin: DigitalPin): void {
             this.pin = pin;
             pins.digitalWritePin(this.pin, 0);
@@ -554,7 +554,7 @@ namespace PlanetX_Display {
     //% weight=90 color=#EA5532
     //% parts="neopixel"
     //% trackArgs=0,2
-    //% blockSetVariable=strip subcategory=Neopixel
+    //% blockSetVariable=strip 
     export function create(Rjpin: DigitalRJPin, numleds: number, mode: NeoPixelMode): Strip {
         let pin = DigitalPin.P1
         switch (Rjpin) {
@@ -589,7 +589,7 @@ namespace PlanetX_Display {
      * @param green value of the green channel between 0 and 255. eg: 255
      * @param blue value of the blue channel between 0 and 255. eg: 255
      */
-    //% weight=1 subcategory=Neopixel color=#EA5532
+    //% weight=1  color=#EA5532
     //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
@@ -598,7 +598,7 @@ namespace PlanetX_Display {
     /**
      * Gets the RGB value of a known color
     */
-    //% weight=2 subcategory=Neopixel color=#EA5532
+    //% weight=2  color=#EA5532
     //% blockId="neopixel_colors" block="%color"
     export function colors(color: NeoPixelColors): number {
         return color;
@@ -626,7 +626,7 @@ namespace PlanetX_Display {
      * @param s saturation from 0 to 99
      * @param l luminosity from 0 to 99
      */
-    //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l" subcategory=Neopixel color=#EA5532
+    //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"  color=#EA5532
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
