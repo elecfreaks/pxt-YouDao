@@ -241,6 +241,33 @@ namespace PlanetX_Display {
         return pin
     }
     /////////////////////////////User_function//////////////////
+    //% block="clear display" color=#00B1ED
+    //% subcategory=Display group="OLED"
+    export function oledClear() {
+        //oledcmd(DISPLAY_OFF);   //display off
+        for (let j = 0; j < 8; j++) {
+            setText(j, 0);
+            {
+                for (let i = 0; i < 16; i++)  //clear all columns
+                {
+                    putChar(' ');
+                }
+            }
+        }
+        //oledcmd(DISPLAY_ON);    //display on
+        setText(0, 0);
+    }
+    //% line.min=1 line.max=8 line.defl=2 
+    //% n.defl=20200508
+    //% block="OLED show line %line|number %n"
+    //% subcategory=Display group="OLED" color=#00B1ED
+    export function showUserNumber(line: number, n: number) {
+        if (firstoledinit) {
+            oledinit()
+            firstoledinit = false
+        }
+        showUserText(line, "" + n)
+    }
     //% line.min=1 line.max=8 line.defl=1
     //% text.defl="Hello,ELECFREAKS"
     //% block="OLED show line %line|text %text"
@@ -264,33 +291,8 @@ namespace PlanetX_Display {
             putChar(" ");
         }
     }
-    //% line.min=1 line.max=8 line.defl=2 
-    //% n.defl=20200508
-    //% block="OLED show line %line|number %n"
-    //% subcategory=Display group="OLED" color=#00B1ED
-    export function showUserNumber(line: number, n: number) {
-        if (firstoledinit) {
-            oledinit()
-            firstoledinit = false
-        }
-        showUserText(line, "" + n)
-    }
-    //% block="clear display" color=#00B1ED
-    //% subcategory=Display group="OLED"
-    export function oledClear() {
-        //oledcmd(DISPLAY_OFF);   //display off
-        for (let j = 0; j < 8; j++) {
-            setText(j, 0);
-            {
-                for (let i = 0; i < 16; i++)  //clear all columns
-                {
-                    putChar(' ');
-                }
-            }
-        }
-        //oledcmd(DISPLAY_ON);    //display on
-        setText(0, 0);
-    }
+
+
 
 
     //% shim=sendBufferAsm
