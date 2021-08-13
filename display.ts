@@ -314,7 +314,7 @@ namespace PlanetX_Display {
          */
         //% blockId="neopixel_set_strip_color" block="%strip|show color %rgb=neopixel_colors"
         //% weight=85 color=#EA5532
-        //% parts="neopixel"
+        //% parts="neopixel" group="Neopixel"
         showColor(rgb: number) {
             rgb = rgb >> 0;
             this.setAllRGB(rgb);
